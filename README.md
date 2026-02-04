@@ -3,7 +3,7 @@ A 2D Metroidvania currently in development by a team of students, built with God
 ## 🛠 Tech Stack
 
 - **Engine:** Godot 4.5
-- **Language:** GDScript / C#
+- **Language:** GDScript
 - **Version Control:** Git
 
 ## 🌌 Overview
