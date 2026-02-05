@@ -16,7 +16,7 @@ This project aims to blend tight platforming mechanics with a rich, interconnect
 ## 👥 The Team
 We are a small, dedicated team of student artists, developers, and designers.
 
-- **Scripting:** Misbah, Anzaar, Fauzan, Basit, Ahmad, Maria
+- **Scripting:** Misbah, Anzaar, Fauzan, Basit, Ahmad, Maria, Hammad
 - **Art:** Sameer, Hira, Ayesha, Anzaar, Somaiya
 - **Tiling/Map Design:** Sameer, Fauzan, Anzaar, Ayesha
 - **Sound Design:** Sameer, Misbah, Somaiya, Fauzan, Anzaar
