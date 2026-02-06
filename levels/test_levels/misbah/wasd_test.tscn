@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://1visoo1puej6"]
+[gd_scene load_steps=3 format=3 uid="uid://1visoo1puej6"]
 
-[node name="Blank Scene" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://b6of0c4og6ahh" path="res://entities/player/player.tscn" id="1_l0end"]
+[ext_resource type="PackedScene" uid="uid://b0hs77rlj4ywy" path="res://levels/test_levels/misbah/scene_assets/platform.tscn" id="1_w1ist"]
+
+[node name="WASD" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_l0end")]
+position = Vector2(320, 232)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("1_w1ist")]
+position = Vector2(304, 256)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_w1ist")]
+position = Vector2(336, 256)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_w1ist")]
+position = Vector2(368, 256)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_w1ist")]
+position = Vector2(272, 256)
