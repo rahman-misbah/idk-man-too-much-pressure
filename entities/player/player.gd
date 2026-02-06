@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	# v = u - gt, where
+	#	g = -gravity
+	#	t = delta
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
