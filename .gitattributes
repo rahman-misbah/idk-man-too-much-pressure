@@ -1,12 +1,54 @@
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
-*.svg filter=lfs diff=lfs merge=lfs -text
-*.mp3 filter=lfs diff=lfs merge=lfs -text
-*.wav filter=lfs diff=lfs merge=lfs -text
-*.ogg filter=lfs diff=lfs merge=lfs -text
-*.ttf filter=lfs diff=lfs merge=lfs -text
-*.otf filter=lfs diff=lfs merge=lfs -text
-*.scn filter=lfs diff=lfs merge=lfs -text
-*.res filter=lfs diff=lfs merge=lfs -text
-*.aseprite filter=lfs diff=lfs merge=lfs -text
+###############################################################################
+# 1. DEFAULT BEHAVIOR
+###############################################################################
+# Handle text files automatically; normalize to LF on check-in.
+* text=auto
+
+###############################################################################
+# 2. GODOT TEXT FILES (Force LF line endings)
+###############################################################################
+*.gd      text eol=lf
+*.tscn    text eol=lf
+*.tres    text eol=lf
+*.godot   text eol=lf
+*.import  text eol=lf
+*.cfg     text eol=lf
+*.json    text eol=lf
+*.xml     text eol=lf
+*.csv     text eol=lf
+*.md      text eol=lf
+
+###############################################################################
+# 3. BINARY FILES & LFS (Disable text processing)
+###############################################################################
+
+# Images and Textures
+*.png       filter=lfs diff=lfs merge=lfs -text
+*.jpg       filter=lfs diff=lfs merge=lfs -text
+*.jpeg      filter=lfs diff=lfs merge=lfs -text
+*.webp      filter=lfs diff=lfs merge=lfs -text
+*.svg       filter=lfs diff=lfs merge=lfs -text
+*.ico       filter=lfs diff=lfs merge=lfs -text
+
+# Audio Assets (Crucial for 2D Platformers)
+*.wav       filter=lfs diff=lfs merge=lfs -text
+*.mp3       filter=lfs diff=lfs merge=lfs -text
+*.ogg       filter=lfs diff=lfs merge=lfs -text
+*.flac      filter=lfs diff=lfs merge=lfs -text
+
+# Fonts
+*.ttf       filter=lfs diff=lfs merge=lfs -text
+*.otf       filter=lfs diff=lfs merge=lfs -text
+
+# Godot Binary Resources
+*.scn       filter=lfs diff=lfs merge=lfs -text
+*.res       filter=lfs diff=lfs merge=lfs -text
+
+# External Art Tools
+*.aseprite  filter=lfs diff=lfs merge=lfs -text
+*.psd       filter=lfs diff=lfs merge=lfs -text
+*.krita     filter=lfs diff=lfs merge=lfs -text
+
+# Compressed Archives
+*.zip       filter=lfs diff=lfs merge=lfs -text
+*.7z        filter=lfs diff=lfs merge=lfs -text
