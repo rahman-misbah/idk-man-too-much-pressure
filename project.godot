@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="IEEE GameDev Project"
+run/main_scene="uid://bhothwtck16ki"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bs4ivy3k71wh7"
 

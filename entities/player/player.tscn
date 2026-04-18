@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6of0c4og6ahh"]
+[gd_scene load_steps=8 format=3 uid="uid://b6of0c4og6ahh"]
 
 [ext_resource type="Script" uid="uid://dg1bs030e6ktj" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="Texture2D" uid="uid://o0lps55rifcp" path="res://assets/test_assets/sprites/player_prototype.png" id="2_abrql"]
+[ext_resource type="Script" uid="uid://n08u3f4f25lv" path="res://entities/player/player_state_machine.gd" id="3_bls4j"]
+[ext_resource type="Script" uid="uid://k0hhujbi6opt" path="res://entities/player/ground.gd" id="4_fkugw"]
+[ext_resource type="Script" uid="uid://ctumwrc62f11e" path="res://entities/player/air.gd" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://da7rhugx63tkw" path="res://entities/player/wall.gd" id="6_8fjmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
 size = Vector2(48, 64)
@@ -19,3 +23,19 @@ texture = ExtResource("2_abrql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_abrql")
+
+[node name="PlayerStateMachine" type="Node" parent="."]
+script = ExtResource("3_bls4j")
+metadata/_custom_type_script = "uid://c1fw1yqejhmd2"
+
+[node name="Ground" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_fkugw")
+metadata/_custom_type_script = "uid://bdduay3pj8lg8"
+
+[node name="Air" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_fkugw")
+metadata/_custom_type_script = "uid://bdduay3pj8lg8"
+
+[node name="Wall" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("6_8fjmc")
+metadata/_custom_type_script = "uid://bdduay3pj8lg8"
