@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://ctumwrc62f11e" path="res://entities/player/air.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://da7rhugx63tkw" path="res://entities/player/wall.gd" id="6_8fjmc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjmc"]
 size = Vector2(48, 64)
 
 [node name="Player" type="CharacterBody2D"]
@@ -22,7 +22,7 @@ texture = ExtResource("2_abrql")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_abrql")
+shape = SubResource("RectangleShape2D_8fjmc")
 
 [node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource("3_bls4j")

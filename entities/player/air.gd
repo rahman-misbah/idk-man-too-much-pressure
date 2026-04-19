@@ -2,4 +2,5 @@ extends State
 
 
 func update(_delta: float) -> void:
-	pass
+	if entity.is_on_floor():
+		transition_requested.emit("Ground")
