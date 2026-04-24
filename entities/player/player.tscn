@@ -13,9 +13,9 @@ size = Vector2(48, 64)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_abrql")
-speed = 240.0
-jump_velocity = -700.0
-gravity_scale = 2.0
+speed = 260.0
+jump_velocity = -650.0
+gravity = 1480
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_abrql")
@@ -25,18 +25,41 @@ texture = ExtResource("2_abrql")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8fjmc")
 
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(37, 0)
+collision_mask = 2
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-37, 0)
+collision_mask = 2
+
 [node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource("3_bls4j")
 metadata/_custom_type_script = "uid://c1fw1yqejhmd2"
 
-[node name="Ground" type="Node" parent="PlayerStateMachine"]
+[node name="Ground" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("entity")]
 script = ExtResource("4_fkugw")
+entity = NodePath("../..")
 metadata/_custom_type_script = "uid://bdduay3pj8lg8"
 
-[node name="Air" type="Node" parent="PlayerStateMachine"]
+[node name="Air" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("entity")]
 script = ExtResource("5_fkugw")
+entity = NodePath("../..")
 metadata/_custom_type_script = "uid://bdduay3pj8lg8"
 
-[node name="Wall" type="Node" parent="PlayerStateMachine"]
+[node name="Wall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("entity")]
 script = ExtResource("6_8fjmc")
+gravity_dampening_factor = 0.05
+wall_coyote_time = 0.05
+entity = NodePath("../..")
 metadata/_custom_type_script = "uid://bdduay3pj8lg8"
+
+[node name="WallJumpTimer" type="Timer" parent="PlayerStateMachine/Wall"]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="PlayerStateMachine/Wall"]
+one_shot = true
+
+[connection signal="timeout" from="PlayerStateMachine/Wall/WallJumpTimer" to="PlayerStateMachine/Wall" method="_on_wall_jump_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/Wall/CoyoteTimer" to="PlayerStateMachine/Wall" method="_on_coyote_timer_timeout"]

@@ -4,7 +4,7 @@ class_name State
 
 signal transition_requested(new_state_name: String)
 
-var entity: Node   # reference to the parent (player / enemy / etc.)
+@export var entity: Node   # reference to the parent (player / enemy / etc.)
 
 
 func enter() -> void:

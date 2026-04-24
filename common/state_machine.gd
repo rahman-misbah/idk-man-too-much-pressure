@@ -10,7 +10,6 @@ func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
-			child.entity = get_parent()
 			child.transition_requested.connect(_on_transition_requested)
 
 	# Set initial state (first child)
