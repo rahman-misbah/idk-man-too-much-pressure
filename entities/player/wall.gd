@@ -8,11 +8,12 @@ extends State
 @onready var coyote_timer : = $CoyoteTimer
 @onready var wall_jump_timer = $WallJumpTimer
 
-var is_in_coyote_time : bool = false 
+var is_in_coyote_time : bool = false
 
 func _ready() -> void:
 	wall_jump_timer.wait_time = wall_jump_timer_time
 	coyote_timer.wait_time = wall_coyote_time
+
 
 func physics_update(delta: float) -> void:
 	if not (entity.ray_cast_left.is_colliding() or entity.ray_cast_right.is_colliding()):

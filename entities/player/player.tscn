@@ -49,6 +49,7 @@ metadata/_custom_type_script = "uid://bdduay3pj8lg8"
 
 [node name="Wall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("entity")]
 script = ExtResource("6_8fjmc")
+wall_jump_timer_time = 1.0
 gravity_dampening_factor = 0.05
 wall_coyote_time = 0.05
 entity = NodePath("../..")
