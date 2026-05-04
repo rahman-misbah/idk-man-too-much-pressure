@@ -11,6 +11,9 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and entity.can_jump:
 		print("    JUMP ")
 		entity.velocity.y = entity.jump_velocity
+		
+	if Input.is_action_just_pressed("dash") and entity.can_dash:
+		transition_requested.emit("Dash")
 
 func enter() -> void:
 	entity.can_jump = true

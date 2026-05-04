@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6of0c4og6ahh"]
+[gd_scene load_steps=9 format=3 uid="uid://b6of0c4og6ahh"]
 
 [ext_resource type="Script" uid="uid://dg1bs030e6ktj" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="Texture2D" uid="uid://o0lps55rifcp" path="res://assets/test_assets/sprites/player_prototype.png" id="2_abrql"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://k0hhujbi6opt" path="res://entities/player/ground.gd" id="4_fkugw"]
 [ext_resource type="Script" uid="uid://ctumwrc62f11e" path="res://entities/player/air.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://da7rhugx63tkw" path="res://entities/player/wall.gd" id="6_8fjmc"]
+[ext_resource type="Script" uid="uid://cebhjb1kgp52v" path="res://entities/player/dash.gd" id="7_qiwj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjmc"]
 size = Vector2(48, 64)
@@ -60,6 +61,15 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="PlayerStateMachine/Wall"]
+one_shot = true
+
+[node name="Dash" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("entity")]
+script = ExtResource("7_qiwj3")
+dash_speed = 650.0
+entity = NodePath("../..")
+metadata/_custom_type_script = "uid://bdduay3pj8lg8"
+
+[node name="DashCooldownTimer" type="Timer" parent="PlayerStateMachine/Dash"]
 one_shot = true
 
 [connection signal="timeout" from="PlayerStateMachine/Wall/WallJumpTimer" to="PlayerStateMachine/Wall" method="_on_wall_jump_timer_timeout"]

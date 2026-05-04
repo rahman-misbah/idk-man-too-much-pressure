@@ -9,6 +9,9 @@ func physics_update(delta: float) -> void:
 		transition_requested.emit("Wall")
 	print("......")
 	
+	if Input.is_action_just_pressed("dash") and entity.can_dash:
+		transition_requested.emit("Dash")
+	
 	# Add the gravity
 	# v = u - (n)gt, where
 	#   n = gravity scaling factor

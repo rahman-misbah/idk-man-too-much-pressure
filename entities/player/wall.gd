@@ -32,6 +32,9 @@ func physics_update(delta: float) -> void:
 		entity.velocity.y = entity.jump_velocity
 		wall_jump_timer.start()
 		entity.can_jump = false
+	
+	if Input.is_action_just_pressed("dash") and entity.can_dash:
+		transition_requested.emit("Dash")
 
 
 func enter() -> void:
@@ -42,10 +45,6 @@ func enter() -> void:
 func exit() -> void:
 	coyote_timer.start()
 
-func get_wall_direction():
-	if entity.is_on_wall():
-		return -1 if entity.get_wall_normal().x > 0 else 1 # -1 = left wall, 1 = right wall
-	return 0
 
 func _on_wall_jump_timer_timeout() -> void:
 	if entity.state_machine.current_state == self:
